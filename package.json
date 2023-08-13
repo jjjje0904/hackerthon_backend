@@ -2,7 +2,7 @@
   "name": "hackerthon",
   "version": "1.0.0",
   "description": "",
-  "main": "crawl2.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon.cmd db.js"
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.4.0",
-    "geolib": "^3.3.4"
+    "axios": "^1.4.0"
   }
 }
