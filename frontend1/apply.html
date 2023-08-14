@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <title>노-ways BETA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="design_apply.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <a href="practice.html" class="logo">노-ways BETA</a>
+    </header>
+
+    <section id="main">
+        <div class="inner">
+            <h1>프로그램 수강 신청</h1>
+        </div>
+    </section>
+
+    <!-- submit-wrapper -->
+    <div class="submit-wrapper">
+        <form method="post" action="practice.html" id="submit-form">
+            <h3>이름</h3>
+            <input type="name" name="userName" id="userName" placeholder="홍길동" required>
+            
+            <h3>전화번호</h3>
+            <input type="tel" name="userPhoneNum" id="userPhoneNum" placeholder="010-1234-5678" required>
+
+            <h3>생년월일</h3>
+            <input type="birthday" name="userBirth" id="userBith" placeholder="2000-01-01" required>
+
+            <h3>주소</h3>
+            <input type="address" name="userAddress" id="userAddress" placeholder="서울특별시 종로구 성균관로 25-2" required>
+
+            <h3>이메일</h3>
+            <input type="email" name="userEmail" id="userEmail" placeholder="likelion@gmail.com" required>
+
+            <h3>성별</h3>
+            <div class="checkbox-target">
+                <input type="radio" id="male" name="sex" value="male" required>
+                <label for="male">남</label>
+
+                <input type="radio" id="female" name="sex" value="female" required>
+                <label for="female">여</label><br>
+            </div>
+            
+            <h3>수강 대상에 해당하십니까?</h3>
+            <div class="checkbox-sex">
+                <input type="radio" id="yes" name="answer" value="yes" required>
+                <label for="yes">예 </label>
+
+                <input type="radio" id="no" name="answer" value="no" required>
+                <label for="no">아니오</label><br>
+            </div>
+            
+             <!-- <input type="submit" value="수강 신청"> -->
+             <button type="button" id="submit-button">수강신청</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<h2>Get In Touch</h2>
+			<div class="actions">
+				<p>(02) 123-000, likelion@gmail.com</p>
+				<p>멋쟁이 사자처럼 11기 노웨이즈</p>
+			</ul>
+		</div>
+	</footer>
+	<div class="copyright">
+		Powered by: <a href="https://www.lifelongedu.go.kr">국가평생학습포털 늘배움</a>
+		<p>Copyright © 2023 No-ways, LIKELION. All rights reserved.</p>
+	</div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("submit-button").addEventListener("click", function () {
+                // event.preventDefault(); // 폼 제출 방지
+
+                // 필수 정보
+                const userName = document.getElementById("userName").value;
+                const userPhoneNum = document.getElementById("userPhoneNum").value;
+                const userBirth = document.getElementById("userBirth").value;
+                const userAddress = document.getElementById("userAddress").value;
+                const userEmail = document.getElementById("userEmail").value;
+                const answerMale = document.getElementById("male").checked;
+                const answerFemale = document.getElementById("female").checked;
+                const answerYes = document.getElementById("yes").checked;
+                const answerNo = document.getElementById("no").checked;
+
+                // 필수 정보 모든 입력 확인
+                if (userName && userPhoneNum && userBirth && userAddress 
+                    && userEmail && (answerMale || answerFemale) && (answerYes || answerNo)) {
+                    // 필수 정보가 입력된 경우 폼 제출
+                    // this.submit();
+                    // 페이지 이동 (새 창이 아닌 현재 창에서)
+                    window.location.href = "practice.html";
+                } 
+                else {
+                    // 필수 정보가 입력되지 않은 경우 안내 창 표시
+                    event.preventDefault(); // 폼 제출 방지
+                    alert("이름, 전화번호 및 수강 대상 여부를 모두 작성해주세요.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

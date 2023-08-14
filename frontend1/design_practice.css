@@ -1,0 +1,171 @@
+body {
+    font-family: "Nanum-Gothic", sans-serif;
+}
+
+/* Header */
+header {
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    background: #fff;
+    cursor: default;
+    height: 5em;
+    left: 0;
+    line-height: 5em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10001;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075);
+    text-align: left;
+}
+
+#header .logo {
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: -6px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+/* Banner */
+#banner {
+    padding-top: 5em;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#banner .name {
+    /*프로그램명*/
+    color: #606060;
+    font-size: 16px;
+    /* 원하는 크기로 조정 */
+    font-weight: bold;
+    /* 원하는 두께로 조정 */
+}
+
+#banner .explain {
+    /*프로그램 설명*/
+    color: #606060;
+    display: block;
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    line-height: 1.8em;
+}
+
+ul {
+    /* 신청하기 위아래 공간 */
+    margin-block-start: 1em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px
+}
+
+/* 신청하기 버튼 */
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #ffe045;
+    border-radius: 4px;
+    border: 0;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 300;
+    height: 3em;
+    line-height: 3em;
+    padding: 0 3em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    color: #ffffff;
+    background-color: #007bff;
+}
+
+/* One */
+
+.info h3 {
+    color: #606060;
+    margin-block-start: 1.8em;
+    margin-block-end: 1em;
+}
+
+.wrapper {
+    color: #606060;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* 요소 가로 나열 */
+    margin-top: 3em;
+    margin-bottom: 2em;
+    align-items: center; 
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    align-items: flex-start; 
+    padding-bottom: 10px;
+}
+
+.InfoFirst, .InfoSec {
+    width: calc(33.33% - 10px); /* 3개의 열로 나눔 */
+    box-sizing: border-box;
+}
+
+.InfoSingle {
+    width: 100%; /* 전체 너비를 차지하도록 설정 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+/* Footer */
+#footer {
+    padding: 8px; 
+    background: #ffed87;
+    text-align: center;
+    color: #a16c00;
+}   
+
+#footer h2{
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#footer p{
+    text-align: center;
+    font-size: 12px;
+}
+
+.copyright {
+    background: #ffed87;
+    display: inline-block;
+    color: #a16c00;
+    font-size: 0.75em;
+    text-align: center;
+    border-top: 3px solid rgba(255, 255, 255, 0.25);
+    padding: 1.5em 0 1em 0;
+    width: 100%;
+}
