@@ -6,6 +6,7 @@ const port = 3000;
 const { connectDB, closeDB } = require('./config/db');
 
 // 미들웨어 설정 및 라우트 등록
+
 app.use(cors()); // 모든 도메인에 대해 CORS 허용
 app.use(express.json());
 
