@@ -121,12 +121,12 @@ router.post('/apply/:programId', async (req, res) => {
 
         // 현재 시점이 신청 시작일보다 이전인 경우
         if (currentDate < applicationStart) {
-            return res.status(400).json({ message: '아직 신청 기간이 시작되지 않았습니다.' });
+            return res.status(200).json({ message: '아직 신청 기간이 시작되지 않았습니다.' });
         }
 
         // 현재 시점이 신청 종료일보다 이후인 경우
         if (currentDate > applicationEnd) {
-            return res.status(400).json({ message: '신청 기간이 이미 종료되었습니다.' });
+            return res.status(200).json({ message: '신청 기간이 이미 종료되었습니다.' });
         }
 
         // 신청인수 증가 및 프로그램 업데이트
@@ -242,7 +242,7 @@ router.post('/nearby', async (req, res) => {
 
         let cursor = collection.find(query);
 
-        const result = [];
+        const docList = [];
         await cursor.forEach(doc => {
             const programLatitude = doc.location.latitude; // 프로그램 위도
             const programLongitude = doc.location.longitude; // 프로그램 경도
@@ -252,19 +252,28 @@ router.post('/nearby', async (req, res) => {
                 { latitude: programLatitude, longitude: programLongitude }
             );
 
-            // 반경 2km 이내의 프로그램만 결과에 추가
-            if (distance <= 2000) {
-                result.push({
-                    program: doc,
-                    distance: distance // 사용자와 프로그램 사이의 거리
-                });
+            // 반경 30km 이내의 프로그램만 결과에 추가
+            if (distance <= 30000) {
+                docList.push(doc);
             }
         });
 
-        // 거리를 기준으로 오름차순 정렬
-        result.sort((a, b) => a.distance - b.distance);
+        // docList를 거리를 기준으로 오름차순 정렬
+        docList.sort((a, b) => {
+            const distanceA = geolib.getDistance(
+                { latitude: userLatitude, longitude: userLongitude },
+                { latitude: a.location.latitude, longitude: a.location.longitude }
+            );
 
-        res.json(result);
+            const distanceB = geolib.getDistance(
+                { latitude: userLatitude, longitude: userLongitude },
+                { latitude: b.location.latitude, longitude: b.location.longitude }
+            );
+
+            return distanceA - distanceB;
+        });
+
+        res.json(docList);
     } catch (err) {
         console.log({ err });
         res.status(500).json({ error: "An error occurred" });
@@ -272,7 +281,6 @@ router.post('/nearby', async (req, res) => {
         await client.close();
     }
 });
-
 
 
 
